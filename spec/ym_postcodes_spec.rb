@@ -14,6 +14,15 @@ describe YmPostcodes::Postcode do
 
     end
 
+    context 'when postcode is not found' do
+
+      it 'responds with 404' do
+        response = YmPostcodes::Postcode.lookup("NOPOSTCODE")
+        expect(response['status']).to eq(404)
+      end
+
+    end
+
   end
 
 end
