@@ -12,6 +12,11 @@ describe YmPostcodes::Postcode do
         expect(response['status']).to eq(200)
       end
 
+      it 'responds with postcode details' do
+        response = YmPostcodes::Postcode.lookup("S1 2BJ")
+        # test for hash response - see
+      end
+
     end
 
     context 'when postcode is not found' do
