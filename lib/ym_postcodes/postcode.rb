@@ -1,5 +1,4 @@
 require "json"
-
 require "rest_client"
 
 module YmPostcodes
@@ -7,24 +6,43 @@ module YmPostcodes
 
     def self.lookup(postcode)
       safe_postcode = URI.encode(postcode)
-      self.request('get', "/postcodes/#{safe_postcode}")
+      self.get_request("/postcodes/#{safe_postcode}")
     end
+
+    def self.lookup_many(postcodes)
+      params = {:postcodes => postcodes}.to_json
+      self.post_request("/postcodes", params)
+    end
+
 
     private
 
-    def self.request(method, path)
+    def self.get_request(path)
       begin
-        response = RestClient.get "#{YmPostcodes.base_url}#{path}"
+        response = RestClient.get self.api_path(path)
       rescue => e
         response = e.response
       end
       JSON.parse(response)
     end
 
+    def self.post_request(path, params)
+      begin
+        response = RestClient.post(
+          self.api_path(path),
+          params,
+          :content_type => :json,
+          :accept => :json
+        )
+      rescue => e
+        response = e.response
+      end
+      JSON.parse(response)
+    end
+
+    def self.api_path(path)
+      "#{YmPostcodes.base_url}#{path}"
+    end
+
   end
 end
-
-
-# TODO: setup webmock for tests https://github.com/bblimke/webmock & http://robots.thoughtbot.com/how-to-stub-external-services-in-tests
-# TODO: add batch lookup
-# TODO: look at adding request method with try and exceptions
