@@ -54,8 +54,20 @@ postcode = YmPostcode::Postcode.lookup "S1 2BJ"
 #    }
 #}
 
+#postcode =>
+
+#{
+#    "status": 404,
+#    "error": "Postcode not found"
+#}
+```
+
 ## Credits
 
 Thanks to the ideal-postcodes.co.uk team for providing http://www.postcodes.io
 and to the authors of https://github.com/ideal-postcodes/ideal-postcodes-ruby
 which inspired this gem.
+
+## Licence
+
+MIT
