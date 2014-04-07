@@ -25,13 +25,7 @@ Call the #lookup class method on YmPostcodes::Postcode
 ```ruby
 postcode = YmPostcode::Postcode.lookup "S1 2BJ"
 
-if postcode.empty?
-	puts "Your postcode doesn't have a match"
-else
-	postcode.details
-end
-
-# postcode.details =>
+# postcode =>
 #
 #{
 #    "status": 200,
@@ -62,6 +56,6 @@ end
 
 ## Credits
 
-Thanks to the ideal-postcodes team for providing http://www.postcodes.io and
-to the authors of https://github.com/ideal-postcodes/ideal-postcodes-ruby which
-inspired this gem.
+Thanks to the ideal-postcodes.co.uk team for providing http://www.postcodes.io
+and to the authors of https://github.com/ideal-postcodes/ideal-postcodes-ruby
+which inspired this gem.
