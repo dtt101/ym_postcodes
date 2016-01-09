@@ -7,10 +7,10 @@ Gem::Specification.new do |spec|
   spec.name          = "ym_postcodes"
   spec.version       = YmPostcodes::VERSION
   spec.authors       = ["David Thompson"]
-  spec.email         = ["david@yoomee.com"]
+  spec.email         = ["dtt101@gmail.com"]
   spec.summary       = 'Wrapper for the postcodes.io API'
   spec.description   = 'postcodes.io provides free postcode and gelocation data for the UK'
-  spec.homepage      = "http://www.yoomee.com"
+  spec.homepage      = "http://dtt101.github.io"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
